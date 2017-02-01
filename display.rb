@@ -14,11 +14,10 @@ class Display
   end
 
   def render
-    p (0...8).to_a.join("     ")
+    puts "   #{(0...8).to_a.join("  ")}"
     @board.grid.each_with_index do |row, index|
       print "#{index}: "
       row.each_with_index do |pos, i|
-        #debugger
         if [index, i] == @cursor.cursor_pos
           print "#{pos.type}  ".colorize(:background => :magenta)
         elsif i == row.length - 1
@@ -28,7 +27,7 @@ class Display
         end
       end
     end
-    'a'
+    '^^ sweet board'
   end
 
   def move_cursor
